@@ -3,28 +3,24 @@
 ############# Call routing project
 ###########################################################################################
 
-# Objective
+##### Objective:
+#   * Find the least cost route through multiple carriers
 
-# Process
-    # file path for the routing
-    # file path for the telephone
+##### Process:
+#   * Get the data until a point in which it can be processed
 
-    # TupleTrie.search(telephone_number)
-        # return the longest prefix
+#   * Get all the routes without the cost into a Trie DataStructure
 
-    # def get_cost(longest_prefix, phone_number)
-        # here is the dictionary 
-        # returns the cost
+#   * The trie gets you the longest prefix available
 
-    # def get_phone_with_cost(telephone):
-        # Trie.search for the longest_prefix
-        # get_cost(longest_prefix, telephone_number)
-        # return tuple with phone number with routing cost
+#   * With the longest available prefix get all the different costs
+
+#   * Pair the cheapest cost in a tuple with the telephone number 
 
 # Scenario1: 
 
+# Functions:
 
-# def get_cost(telephone):
             
 def main():
     ##### PATH
