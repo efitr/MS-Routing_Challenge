@@ -17,7 +17,7 @@ class NumbersTrie(object):
 
     def get_index(self, number_in_telephone):
         # print(letter)
-        return ord(number_in_telephone.lower())-ord('a')
+        return ord(number_in_telephone)-ord('0')
 
     def add_route(self, route):
         # here is where the each possible patterns gets
