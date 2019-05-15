@@ -65,8 +65,8 @@ def main():
 
     # Routing Cost Paths
     # path_routing_costs_10 = "../../../../../RoutingFiles/CallRouting/route-costs-10.txt"
-    # path_routing_costs_100 = "../../../../../RoutingFiles/CallRouting/route-costs-100.txt"
-    path_routing_costs_600 = "../../../../../RoutingFiles/CallRouting/route-costs-600.txt"
+    path_routing_costs_100 = "../../../../../RoutingFiles/CallRouting/route-costs-100.txt"
+    # path_routing_costs_600 = "../../../../../RoutingFiles/CallRouting/route-costs-600.txt"
     # path_routing_costs_35000 = "../../../../../RoutingFiles/CallRouting/route-costs-35000.txt"
     # path_routing_costs_106000 = "../../../../../RoutingFiles/CallRouting/route-costs-106000.txt"
     # path_routing_costs_1000000 = "../../../../../RoutingFiles/CallRouting/route-costs-1000000.txt"
@@ -76,7 +76,7 @@ def main():
     # Phone Number File
     phone_numbers_file = open(path_phone_number_10, 'r')
     # Routing Cost File
-    routing_costs_file = open(path_routing_costs_600, 'r')
+    routing_costs_file = open(path_routing_costs_100, 'r')
     
     phone_numbers = phone_numbers_file.readlines()
     routing_costs = routing_costs_file.readlines()
@@ -93,8 +93,9 @@ def main():
     # Make a Trie Data Structure 
     trie = NumbersTrie(clean_routes)
     # print(trie)
-    longest_route = trie.search('14105547746')
-    print('This is the longest route from this phone number 14105547746:', longest_route)
+    for phone_number in clean_phone_numbers:
+        longest_route = trie.search(phone_number)
+        print('This is the longest route from this phone number ', longest_route)
 
     # Making a dictionary with all the data
     dictionary_route_list_costs = route_dictionary_of_lists(routing_costs)
