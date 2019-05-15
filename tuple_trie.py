@@ -4,7 +4,7 @@ class NumbersNode(object):
     #
     def __init__(self):
         # self.data = tuple()
-        self.children = []*10
+        self.children = [None]*10
         self.pattern_end = False
     
 # This is the TupleTrie
@@ -20,9 +20,23 @@ class NumbersTrie(object):
         return ord(number_in_telephone)-ord('0')
 
     def add_route(self, route):
-        # here is where the each possible patterns gets
-        # inserted
+        # we make the node where this starts be the root of the Trie
         node = self.root
+
+        for number in route:
+            index = self.get_index(number)
+
+            if node.children[index] is None:
+
+                new_node = NumbersNode()
+
+                node.children[index] = new_node
+
+                node = new_node
+            else:
+                node = node.children[index]
+        
+        node.pattern_end = True
     
     # The trie must get you a list of all possible carriers that have the longest prefix
     def search(self, phone_number):
