@@ -46,8 +46,21 @@ class NumbersTrie(object):
     def search(self, phone_number):
         # here we implement back tracking
         # recursively go down to the furthest possible node
+        node = self.root
 
-        return #longest_prefix
+        longest_route = ''
+
+        for number in phone_number:
+
+            index = self.get_index(number)
+
+            if node.children[index] is not None:
+                longest_route = longest_route + str(index)
+                node.children[index] = node
+            else:
+                return longest_route
+        
+        return longest_route
 
 
     
