@@ -23,19 +23,23 @@ class NumbersTrie(object):
         # we make the node where this starts be the root of the Trie
         node = self.root
 
+        # iterate every number in the route
         for number in route:
+    
             index = self.get_index(number)
 
+            # If nothing has been added to that particular index
             if node.children[index] is None:
-
+                # Make a new node
                 new_node = NumbersNode()
-
+                # Place in that index the new_node
                 node.children[index] = new_node
-
+                # To keep on traversing if there still number in the route
                 node = new_node
             else:
+                # Given that the place is with a node keep on traversing
                 node = node.children[index]
-        
+        # The end of the route has been reached make that node be the end
         node.pattern_end = True
     
     # The trie must get you a list of all possible carriers that have the longest prefix
